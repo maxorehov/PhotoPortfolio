@@ -1,0 +1,166 @@
+header {
+	text-align: center;
+}
+
+
+body {
+    font-family: Arial, "Times New Roman", sans-serif;
+}
+
+.logo {
+	padding: 15px;
+	margin: 25px;
+}
+
+h1 {
+	font-size: 56px;
+}
+
+.menu {
+    background-color: #212529;
+    margin-bottom: 45px;
+    height: 60px;
+    padding: 10px;
+}
+
+.main-foto {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.nav-menu {
+	display: flex;
+	justify-content: space-between;
+}
+
+.nav-link {
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #FFFFFF;
+	font-weight: bold;
+	border: 1px solid white;
+}
+
+.content-about {
+	margin-top: 45px;
+}
+
+.about {
+	text-align: justify;
+}
+
+.preview {
+	height: 350px;
+	width: 350px;
+}
+
+.portfolio-row {
+	margin-bottom: 25px;
+}
+
+.list {
+	text-align: center;
+	margin: 20px 0 30px 0;
+}
+
+.footer {
+	background-color: #484848;
+	text-align: center;
+	color: #fff;
+	height: 50px;
+}
+
+.body-auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+label {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.auth {
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+.btn {
+    width: 100px;
+    margin: 0 auto;
+}
+
+.error {
+    color: #dc3545;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 20px;
+    text-align: center;
+    
+}
+
+/*ADMIN TEMPlATE*/
+
+aside {
+    height: 100%;
+    width: 260px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+aside a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    margin-top: 20px;
+}
+
+aside a:hover {
+    color: #f1f1f1;
+}
+
+.admin-content {
+    margin-left: 260px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+/*ADMIN MAIN PAGE*/
+
+.btn-change {
+    position: relative;
+    left: 150px;
+    top: 10px;
+}
+
+.form-change {
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
