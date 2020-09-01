@@ -5,10 +5,12 @@
         <group>
             <file>file:/var/www/test.site/admin/adminFoto.php</file>
             <file>file:/var/www/test.site/core/addAlbum.php</file>
+            <file>file:/var/www/test.site/core/delCategory.php</file>
             <file>file:/var/www/test.site/core/functions.php</file>
             <file>file:/var/www/test.site/photos.php</file>
             <file>file:/var/www/test.site/admin/adminCategory.php</file>
             <file>file:/var/www/test.site/assets/js/main.js</file>
+            <file>file:/var/www/test.site/portfolio.php</file>
             <file>file:/var/www/test.site/core/addFoto.php</file>
         </group>
     </open-files>

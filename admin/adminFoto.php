@@ -1,5 +1,6 @@
 <?php
     require_once '../core/connect_db.php';
+    require_once '../core/functions.php';
     session_start();
     if (!$_SESSION['signin']) {
         header("Location: index.html");
@@ -7,9 +8,12 @@
     $request = "SELECT * FROM albums";
     try {
         $albums = $pdo->query($request);
+        $albums = $albums->fetchAll();
     } catch (PDOException $e) {
         echo "Не удалось удалить альбом, ошибка БД: " . $e->getMessage();
     }
+    
+    
 ?>
 <!DOCTYPE html>
 <html lang = "en">
@@ -43,6 +47,27 @@
                 <input class="remove" type="button" value="-">
             </p>
             <button>Загрузить</button>
+            <?php
+                if ($_SESSION['addPhoto']) {
+                    echo "<p>" . $_SESSION['addPhoto'] . "</p>";
+                }
+                unset($_SESSION['addPhoto']);
+            ?>
+        </form>
+        <hr>
+        <h2>Выберите фото для удаления</h2>
+        <form method="POST">
+            <label for="delFotos">Выберите альбом из которого следует удалить фотографии:</label>
+            <select name="needDel" id="delFotos">
+                <option value="0">Выберите альбом</option>
+                <?php foreach($albums as $album): ?>
+                <option value="<?= $album['id']; ?>"><?= $album['name']; ?></option>
+                <?php endforeach; ?>
+            </select>
+        </form>
+        <form action="../core/delFoto.php" id="ans" method="POST">
+            
+            <button>Удалить</button>
         </form>
     </div>
     
