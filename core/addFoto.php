@@ -5,24 +5,33 @@ if (!$_SESSION['signin']) {
 }
 
 require_once 'functions.php';
-require_once 'connect_db.php';
+require_once 'connect_db.php';  
+
 $addTo = $_POST['addTo'];
-if ($addTo == 0) {
+
+if (!$addTo) {
+    $_SESSION['addFoto'] = 'Не выбрана категория';
     header('Location: ../admin/adminFoto.php');
-    $_SESSION['addPhoto'] = 'Не выбрана категория';
     die();
 }
 
-$photos = reArrayFiles($_FILES['photo']);
 
-foreach ($photos as $photo) {
-    $path = "uploads/photos/" . time() . $photo['name'];
-    move_uploaded_file($photo['tmp_name'], "../" . $path);
+if ($_FILES['foto']['error']['0'] == 4) {
+    $_SESSION['addFoto'] = 'Добавьте фото!';
+    header('Location: ../admin/adminFoto.php');
+    die();
+}
+
+$fotos = reArrayFiles($_FILES['foto']);
+
+foreach ($fotos as $foto) {
+    $path = "uploads/fotos/" . time() . $foto['name'];
+    move_uploaded_file($foto['tmp_name'], "../" . $path);
     $request = "INSERT INTO photos VALUES (NULL, :path, :album_id)";
     try {
         $request = $pdo->prepare($request);
         $request->execute(['path' => $path, 'album_id' => $addTo]);
-        $_SESSION['addPhoto'] = 'Фотографии успешно добавлены!';
+        $_SESSION['addFoto'] = 'Фотографии успешно добавлены!';
         header('Location: ../admin/adminFoto.php');
     } catch (PDOException $e) {
         echo "Не удалось добавить новый альбом" . $e->getMessage();

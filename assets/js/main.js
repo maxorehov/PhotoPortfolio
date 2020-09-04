@@ -1,25 +1,27 @@
 $(document).ready(function() {
-   $(document).on('click', 'input[type="button"][value != "+"]', removeField);
-   $(document).on('click', 'input[type="button"][value != "-"]', addField);
-   $('#delFotos').on('change', function() {
-       
-       $.ajax({
+    $(document).on('click', 'input[type="button"][value != "+"]', removeField);
+    $(document).on('click', 'input[type="button"][value != "-"]', addField);
+    $('#delFotos').on('change', function() {
+        $('#ans').empty();
+        $.ajax({
            url: '../../core/showDelFotos.php?id=' + $(this).val()
-       }).done(function(data) {
+        }).done(function(data) {
            $('#ans').append(data);
-       })
+        })
                
-   })
+        })
 });
 
 function addField() {
-    console.log('+')
-    $("p:last").clone().insertAfter("p:last");
+    var el = $("p:last").clone();
+    $(".mass").append(el);
 }
 
 function removeField() {
-    console.log('-');
-    $("p:last").remove();
+    $(".mass p:last").remove();
 }
+
+
+
 
 

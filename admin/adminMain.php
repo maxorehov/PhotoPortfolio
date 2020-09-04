@@ -17,7 +17,7 @@
 <body>
     <aside>
         <a href="adminMain.php">Главная страница</a>
-        <a href="adminCategory.php">Добавить альбом</a>
+        <a href="adminAlbum.php">Добавить альбом</a>
         <a href="adminFoto.php">Добавить фото</a>
     </aside>
     <div class="admin-content">

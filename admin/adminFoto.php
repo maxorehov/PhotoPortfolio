@@ -10,7 +10,7 @@
         $albums = $pdo->query($request);
         $albums = $albums->fetchAll();
     } catch (PDOException $e) {
-        echo "Не удалось удалить альбом, ошибка БД: " . $e->getMessage();
+        echo "Ошибка БД: " . $e->getMessage();
     }
     
     
@@ -28,7 +28,7 @@
 <body>
     <aside>
         <a href="adminMain.php">Главная страница</a>
-        <a href="adminCategory.php">Добавить альбом</a>
+        <a href="adminAlbum.php">Добавить альбом</a>
         <a href="adminFoto.php">Добавить фото</a>
     </aside>
     <div class="admin-content">
@@ -38,21 +38,26 @@
             <select name="addTo" id="albums">
                 <option value="0">Выберите альбом</option>
                 <?php foreach($albums as $album): ?>
-                <option value="<?= $album['id']; ?>"><?= $album['name']; ?></option>
+                    <option value="<?= $album['id']; ?>" name="<?= $album['name']; ?>"><?= $album['name']; ?></option>
                 <?php endforeach; ?>
             </select>
-            <p class="photo">
-                <input type="file" name="photo[]" />
+            <p class="foto">
+                <input type="file" name="foto[]" />
                 <input class="add" type="button" value="+">
                 <input class="remove" type="button" value="-">
             </p>
+            <div class="mass">
+                
+            </div>
             <button>Загрузить</button>
-            <?php
-                if ($_SESSION['addPhoto']) {
-                    echo "<p>" . $_SESSION['addPhoto'] . "</p>";
-                }
-                unset($_SESSION['addPhoto']);
-            ?>
+            <div class="info">
+                <?php
+                    if ($_SESSION['addFoto']) {
+                        echo "<div>" . $_SESSION['addFoto'] . "</div>";
+                    }
+                    unset($_SESSION['addFoto']);
+                ?>
+            </div>
         </form>
         <hr>
         <h2>Выберите фото для удаления</h2>
@@ -65,9 +70,12 @@
                 <?php endforeach; ?>
             </select>
         </form>
-        <form action="../core/delFoto.php" id="ans" method="POST">
+        <form action="../core/delFoto.php" method="POST">
             
             <button>Удалить</button>
+            <div id="ans">
+                
+            </div>
         </form>
     </div>
     
