@@ -8,13 +8,11 @@ require_once 'functions.php';
 require_once 'connect_db.php';  
 
 $addTo = $_POST['addTo'];
-
 if (!$addTo) {
     $_SESSION['addFoto'] = 'Не выбрана категория';
     header('Location: ../admin/adminFoto.php');
     die();
 }
-
 
 if ($_FILES['foto']['error']['0'] == 4) {
     $_SESSION['addFoto'] = 'Добавьте фото!';

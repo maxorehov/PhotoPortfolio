@@ -21,41 +21,38 @@
 
 </head>
 <body>
-	<header>
-		<div class="logo">
-			<h1>FOTOROMB</h1>
-		</div>
-	</header>
-	<div class="menu">
+	<main class="portfolio">
 		<div class="container">
-			<ul class="nav nav-menu">
-				<li class="nav-item">
-				  <a class="nav-link active" href="index.php">Main</a>
-				</li>
-				<li class="nav-item">
-                    <a class="nav-link" href="portfolio.php">Portfolio</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="#">Contacts</a>
-				</li>
-			  </ul>
-		</div>
-	</div>  
-	<main>
-		<div class="container">
-			<div class="list">
-				<h2>ALBUMS</h2>
-			</div>
+			<div class="logo">
+				<h1>FOTOROMB</h1>
+			</div>	
+			 <nav class="menu">
+	           <ul class="nav nav-menu">
+	                <li class="nav-item">
+	                    <a class="nav-link active" href="index.php">Main</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a class="nav-link" href="portfolio.php">Portfolio</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a class="nav-link" href="#">Contacts</a>
+	                </li>
+	            </ul>
+    		</nav>
+
             <div class="portfolio-row">
                     <?php foreach($responce as $value):?>
                         <p class="album-name"><?= $value['name'] ?></p>
                         <a href="photos.php?id=<?= $value['id']; ?>">
-                            <img src="<?= $value['prewiev'];?>" alt="" class="preview">
+                            <img class="preview" src="<?= $value['prewiev'];?>" alt="">
                         </a>
                     <?php endforeach;?>
             </div>    
+		</div>	
 		</div>
+       
 	</main>
+
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/jquery-3.5.1.min.js" ></script>
 </body>

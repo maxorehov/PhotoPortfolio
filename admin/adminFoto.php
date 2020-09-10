@@ -73,9 +73,18 @@
         <form action="../core/delFoto.php" method="POST">
             
             <button>Удалить</button>
+            <div class="info">
+                <?php
+                    if ($_SESSION['delFoto']) {
+                        echo "<div>" . $_SESSION['delFoto'] . "</div>";
+                    }
+                    unset($_SESSION['delFoto']);
+                ?>
+            </div>
             <div id="ans">
                 
             </div>
+
         </form>
     </div>
     
