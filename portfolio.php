@@ -23,8 +23,8 @@
 <body>
 	<main class="portfolio">
 		<div class="container">
-			<div class="logo">
-				<h1>FOTOROMB</h1>
+			<div>
+				<h1 class="logo">FOTOROMB</h1>
 			</div>	
 			 <nav class="menu">
 	           <ul class="nav nav-menu">
@@ -41,11 +41,14 @@
     		</nav>
 
             <div class="portfolio-row">
-                    <?php foreach($responce as $value):?>
-                        <p class="album-name"><?= $value['name'] ?></p>
-                        <a href="photos.php?id=<?= $value['id']; ?>">
-                            <img class="preview" src="<?= $value['prewiev'];?>" alt="">
-                        </a>
+					<?php foreach($responce as $value):?>
+						<div class="album">
+							<p class="album-name"><?= $value['name'] ?></p>
+							<a href="photos.php?id=<?= $value['id']; ?>">
+								<img class="preview" src="<?= $value['prewiev'];?>" alt="">
+							</a>
+						</div>
+
                     <?php endforeach;?>
             </div>    
 		</div>	

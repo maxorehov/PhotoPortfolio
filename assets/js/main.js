@@ -10,6 +10,32 @@ $(document).ready(function() {
         })
                
         })
+
+
+
+
+   
+
+        // $('.logo').on('click', function(e){
+        //     var fixedOffset = 1000;
+        //     $('html,body').stop().animate({ scrollTop: $('#first').offset().top + fixedOffset }, 500);
+        //     e.preventDefault();
+        // });
+        
+      
+});
+
+let item = document.querySelector('.goto-portfolio');
+    to = document.querySelector('.portfolio'),
+    gotoStart = document.querySelector('.goto-start'),
+    main = document.querySelector('.main');
+
+gotoStart.addEventListener('click', () => {
+    main.scrollIntoView({behavior: 'smooth'});
+})
+
+item.addEventListener('click', () => {
+    to.scrollIntoView({behavior: 'smooth'});
 });
 
 function addField() {
