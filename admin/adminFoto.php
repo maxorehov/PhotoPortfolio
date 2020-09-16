@@ -54,8 +54,8 @@
                 <?php
                     if ($_SESSION['addFoto']) {
                         echo "<div>" . $_SESSION['addFoto'] . "</div>";
+                        unset($_SESSION['addFoto']);
                     }
-                    unset($_SESSION['addFoto']);
                 ?>
             </div>
         </form>

@@ -6,9 +6,9 @@ if (!$_SESSION['signin']) {
 
 require_once 'functions.php';
 require_once 'connect_db.php';  
-
+// die($_POST['addTo']);
 $addTo = $_POST['addTo'];
-if (!$addTo) {
+if ($addTo == 0) {
     $_SESSION['addFoto'] = 'Не выбрана категория';
     header('Location: ../admin/adminFoto.php');
     die();

@@ -33,7 +33,7 @@
                 <div>
                     <h1 class="logo">FOTOROMB</h1>
                 </div>
-                <nav class="menu">
+                <!-- <nav class="menu">
                    <ul class="nav nav-menu">
                         <li class="nav-item">
                             <a class="nav-link active" href="index.php">Main</a>
@@ -45,7 +45,7 @@
                             <a class="nav-link" href="#">Contacts</a>
                         </li>
                     </ul>
-                </nav>
+                </nav> -->
                     <article>
                         <p class="about">
                             <?= $content; ?>
@@ -53,12 +53,14 @@
                     </article>
                     <div class="goto-portfolio">
                         Портфолио
+                        <i class="icon-down"></i>
                     </div>
             </div> 
         </main>
         <div class="container portfolio-container">
             <div class="goto-start">
-                Up
+                Наверх
+                <i class="icon-up"></i>
             </div>
             <div class="portfolio">
                     <?php foreach($responce as $value):?>
@@ -73,7 +75,7 @@
         </div>
 
  
-	<!-- <script src="assets/bootstrap/js/bootstrap.min.js"></script> -->
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/jquery-3.5.1.min.js" ></script>
     <script src="assets/js/main.js"></script>
     </body>

@@ -17,15 +17,39 @@
     <head>
         <meta charset="UTF-8">
         <title>Photos</title>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" >
+    	<link rel="stylesheet" href="assets/style.css">
+        <link rel="stylesheet" href="assets/fonts.css">
+        <link rel="stylesheet" href="assets/fancybox/dist/jquery.fancybox.min.css">
     </head>
     <body>
-        <h1>PHOTOS PAGE</h1>
-        
         <div class="container">
-            <?php foreach($photos as $photo): ?>
-                <img src="<?= $photo['path']; ?>" alt="">
-            <?php endforeach; ?>
+            <h1 class="title">PHOTOS PAGE</h1>
+            <button class="btn btn-dark back" onclick="window.history.back()">Назад</button>
         </div>
+  
+        
+        <div class="container foto-container">
+            <div class="grid">
+            <?php foreach($photos as $photo): ?>
+                <div class="grid-item">
+                
+                <a href="<?= $photo['path']; ?>" data-fancybox="gallery" data-caption="">
+	                <img src="<?= $photo['path']; ?>" alt="" />
+                </a>
+                
+                </div>
+                <?php endforeach; ?>
+            </div>
+                
+            
+        </div>
+        <script src="assets/jquery-3.5.1.min.js" ></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/masonry.min.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="assets/fancybox/dist/jquery.fancybox.min.js"></script>
+       
     </body>
 </html>
 

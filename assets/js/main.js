@@ -1,6 +1,7 @@
 $(document).ready(function() {
     $(document).on('click', 'input[type="button"][value != "+"]', removeField);
     $(document).on('click', 'input[type="button"][value != "-"]', addField);
+    
     $('#delFotos').on('change', function() {
         $('#ans').empty();
         $.ajax({
@@ -9,19 +10,13 @@ $(document).ready(function() {
            $('#ans').append(data);
         })
                
-        })
+    })
 
-
-
-
-   
-
-        // $('.logo').on('click', function(e){
-        //     var fixedOffset = 1000;
-        //     $('html,body').stop().animate({ scrollTop: $('#first').offset().top + fixedOffset }, 500);
-        //     e.preventDefault();
-        // });
-        
+        $('.grid').masonry({
+            // options
+            itemSelector: '.grid-item',
+            columnWidth: 300
+          });
       
 });
 
