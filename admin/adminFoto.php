@@ -75,7 +75,7 @@
             </form>
             <form action="../core/delFoto.php" method="POST">
                 
-                <button class="btn btn-danger">Удалить</button>
+                
                 <div class="info">
                     <?php
                         if ($_SESSION['delFoto']) {
@@ -84,12 +84,14 @@
                         unset($_SESSION['delFoto']);
                     ?>
                 </div>
-
-
-            </form>
-            <div id="ans">
+                <div id="ans">
                     
-            </div>
+                </div>
+
+                
+                <button class="btn btn-danger">Удалить</button>
+            </form>
+
         </div>
         
     </div>

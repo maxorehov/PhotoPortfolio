@@ -14,6 +14,6 @@ try {
 }
 
 foreach ($fotos as $foto) {
-    echo "<input type='checkbox' name='{$foto["id"]}' value='{$foto["id"]}'>"
-    . "<img src='../{$foto["path"]}' width='200px' height='200px'>";
+    echo "<div class='del-prew'><input type='checkbox' class='custom-check' name='{$foto["id"]}' value='{$foto["id"]}'>"
+    . "<img src='../{$foto["path"]}' width='200px' height='200px'></div>";
 }

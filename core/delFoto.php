@@ -6,6 +6,9 @@ require_once 'connect_db.php';
 $request_to_del = "SELECT * FROM photos WHERE id = :id";
 $del_files = [];
 
+var_dump($_POST);
+die();
+
 foreach ($_POST as $file) {
     try{
         $responce = $pdo->prepare($request_to_del);
@@ -16,6 +19,8 @@ foreach ($_POST as $file) {
     }
 
 }
+
+
 
 foreach ($del_files as $del) {
     unlink("../" . $del['path']);
