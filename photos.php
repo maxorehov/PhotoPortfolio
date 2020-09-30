@@ -9,16 +9,17 @@
         echo "Ошибка базы данных: " . $e->getMessage();
     }
     $photos = $responce->fetchAll(PDO::FETCH_ASSOC);
-//    my_print($photo);
 ?>
 
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Photos</title>
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" >
     	<link rel="stylesheet" href="assets/style.css">
+        <link rel="stylesheet" href="assets/media.css">
         <link rel="stylesheet" href="assets/fonts.css">
         <link rel="stylesheet" href="assets/fancybox/dist/jquery.fancybox.min.css">
     </head>
@@ -33,11 +34,9 @@
             <div class="grid">
             <?php foreach($photos as $photo): ?>
                 <div class="grid-item">
-                
-                <a href="<?= $photo['path']; ?>" data-fancybox="gallery" data-caption="">
-	                <img src="<?= $photo['path']; ?>" alt="" />
-                </a>
-                
+                    <a href="<?= $photo['path']; ?>" data-fancybox="gallery" data-caption="">
+    	                <img src="<?= $photo['path']; ?>" alt="" />
+                    </a>
                 </div>
                 <?php endforeach; ?>
             </div>
@@ -49,7 +48,6 @@
         <script src="assets/js/masonry.min.js"></script>
         <script src="assets/js/main.js"></script>
         <script src="assets/fancybox/dist/jquery.fancybox.min.js"></script>
-       
     </body>
 </html>
 

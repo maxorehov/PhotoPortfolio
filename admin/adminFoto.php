@@ -32,60 +32,66 @@
         <a href="adminFoto.php">Добавить фото</a>
     </aside>
     <div class="admin-content">
-        <h2>На этой странице вы можете добавить фотографии в альбом</h2>
-        <form action="../core/addFoto.php" enctype="multipart/form-data" method="POST">
-            <label for="albums">Выберите альбом для добавления фото:</label>
-            <select name="addTo" id="albums">
-                <option value="0">Выберите альбом</option>
-                <?php foreach($albums as $album): ?>
-                    <option value="<?= $album['id']; ?>" name="<?= $album['name']; ?>"><?= $album['name']; ?></option>
-                <?php endforeach; ?>
-            </select>
-            <p class="foto">
-                <input type="file" name="foto[]" />
-                <input class="add" type="button" value="+">
-                <input class="remove" type="button" value="-">
-            </p>
-            <div class="mass">
+        <h2>На этой странице вы можете добавить или удалить фотографии</h2>
+        <div class="add-foto">
+            <form action="../core/addFoto.php" enctype="multipart/form-data" method="POST">
+                <label for="albums">Выберите альбом для добавления фото:</label>
+                <select name="addTo" id="albums" class="form-control">
+                    <option value="0">Выберите альбом</option>
+                    <?php foreach($albums as $album): ?>
+                        <option value="<?= $album['id']; ?>" name="<?= $album['name']; ?>"><?= $album['name']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <p class="foto">
+                    <input type="file" name="foto[]" />
+                    <input class="add" type="button" value="+">
+                    <input class="remove" type="button" value="-">
+                </p>
+                <div class="mass">
+                    
+                </div>
+                <button class="btn btn-primary">Загрузить</button>
+                <div class="info">
+                    <?php
+                        if ($_SESSION['addFoto']) {
+                            echo "<div>" . $_SESSION['addFoto'] . "</div>";
+                            unset($_SESSION['addFoto']);
+                        }
+                    ?>
+                </div>
+            </form>
+        </div>
+        
+        <div class="del-fotos">
+            <h3>Выберите фото для удаления</h3>
+            <form method="POST">
+                <label for="delFotos">Выберите альбом из которого следует удалить фотографии:</label>
+                <select name="needDel" id="delFotos" class="form-control">
+                    <option value="0">Выберите альбом</option>
+                    <?php foreach($albums as $album): ?>
+                    <option value="<?= $album['id']; ?>"><?= $album['name']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </form>
+            <form action="../core/delFoto.php" method="POST">
                 
-            </div>
-            <button>Загрузить</button>
-            <div class="info">
-                <?php
-                    if ($_SESSION['addFoto']) {
-                        echo "<div>" . $_SESSION['addFoto'] . "</div>";
-                        unset($_SESSION['addFoto']);
-                    }
-                ?>
-            </div>
-        </form>
-        <hr>
-        <h2>Выберите фото для удаления</h2>
-        <form method="POST">
-            <label for="delFotos">Выберите альбом из которого следует удалить фотографии:</label>
-            <select name="needDel" id="delFotos">
-                <option value="0">Выберите альбом</option>
-                <?php foreach($albums as $album): ?>
-                <option value="<?= $album['id']; ?>"><?= $album['name']; ?></option>
-                <?php endforeach; ?>
-            </select>
-        </form>
-        <form action="../core/delFoto.php" method="POST">
-            
-            <button>Удалить</button>
-            <div class="info">
-                <?php
-                    if ($_SESSION['delFoto']) {
-                        echo "<div>" . $_SESSION['delFoto'] . "</div>";
-                    }
-                    unset($_SESSION['delFoto']);
-                ?>
-            </div>
-            <div id="ans">
-                
-            </div>
+                <button class="btn btn-danger">Удалить</button>
+                <div class="info">
+                    <?php
+                        if ($_SESSION['delFoto']) {
+                            echo "<div>" . $_SESSION['delFoto'] . "</div>";
+                        }
+                        unset($_SESSION['delFoto']);
+                    ?>
+                </div>
 
-        </form>
+
+            </form>
+            <div id="ans">
+                    
+            </div>
+        </div>
+        
     </div>
     
     <script src="../assets/jquery-3.5.1.min.js"></script>

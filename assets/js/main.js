@@ -12,26 +12,18 @@ $(document).ready(function() {
                
     })
 
-        $('.grid').masonry({
-            // options
-            itemSelector: '.grid-item',
-            columnWidth: 300
-          });
+    $('.grid').masonry({
+        // options
+
+        itemSelector: '.grid-item',
+        columnWidth: '.grid-item',
+        percentPosition: true
+    });
       
 });
 
-let item = document.querySelector('.goto-portfolio');
-    to = document.querySelector('.portfolio'),
-    gotoStart = document.querySelector('.goto-start'),
-    main = document.querySelector('.main');
 
-gotoStart.addEventListener('click', () => {
-    main.scrollIntoView({behavior: 'smooth'});
-})
 
-item.addEventListener('click', () => {
-    to.scrollIntoView({behavior: 'smooth'});
-});
 
 function addField() {
     var el = $("p:last").clone();
@@ -41,6 +33,8 @@ function addField() {
 function removeField() {
     $(".mass p:last").remove();
 }
+
+// console.log(window.location.href);
 
 
 

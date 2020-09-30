@@ -15,5 +15,5 @@ try {
 
 foreach ($fotos as $foto) {
     echo "<input type='checkbox' name='{$foto["id"]}' value='{$foto["id"]}'>"
-    . "<img src='../{$foto["path"]}'>";
+    . "<img src='../{$foto["path"]}' width='200px' height='200px'>";
 }

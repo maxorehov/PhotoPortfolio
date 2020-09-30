@@ -15,7 +15,7 @@
     } catch (PDOException $e) {
         echo "Ошибка базы данных: " . $e->getMessage();
     }
-
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +24,8 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	<title>Document</title>
     	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" >
-    	<link rel="stylesheet" href="assets/style.css">
+        <link rel="stylesheet" href="assets/style.css">
+        <link rel="stylesheet" href="assets/media.css">
     	<link rel="stylesheet" href="assets/fonts.css">
     </head>
     <body>
@@ -65,18 +66,22 @@
             <div class="portfolio">
                     <?php foreach($responce as $value):?>
                         <div class="album">
-                            <p class="album-name"><?= $value['name'] ?></p>
+                            
                             <a href="photos.php?id=<?= $value['id']; ?>">
                                 <img class="preview" src="<?= $value['prewiev'];?>" alt="">
                             </a>
+                            <p class="album-name"><?= $value['name'] ?></p>
                         </div>
                     <?php endforeach;?>
             </div>  
         </div>
 
- 
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/jquery-3.5.1.min.js" ></script>
-    <script src="assets/js/main.js"></script>
+        <footer class="footer">
+            <div class="container">
+                <h2>This is footer</h2>
+            </div>
+        </footer>
+    <script src="assets/js/index.js"></script>
     </body>
 </html>
+
