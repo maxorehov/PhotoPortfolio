@@ -20,16 +20,25 @@
 <head>
 	<meta charset = "UTF-8">
 	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-	<title><?= "Success!"; ?></title>
+	<title>Foto</title>
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css" >
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="../assets/fonts.css">
 </head>
 <body>
-    <aside>
-        <a href="adminMain.php">Главная страница</a>
-        <a href="adminAlbum.php">Добавить альбом</a>
-        <a href="adminFoto.php">Добавить фото</a>
+    <aside class="left">
+
+        <div class="btn_mnu">
+            <div class="btn_row"></div>
+            <div class="btn_row"></div>
+            <div class="btn_row"></div>
+        </div>
+        <div class="aside-nav">
+           <a href="adminMain.php">Главная страница</a>
+           <a href="adminAlbum.php">Добавить альбом</a>
+           <a href="adminFoto.php">Добавить фото</a> 
+        </div>
+
     </aside>
     <div class="admin-content">
         <h2>На этой странице вы можете добавить или удалить фотографии</h2>
@@ -51,14 +60,14 @@
                     
                 </div>
                 <button class="btn btn-primary">Загрузить</button>
-                <div class="info">
+                
                     <?php
                         if ($_SESSION['addFoto']) {
-                            echo "<div>" . $_SESSION['addFoto'] . "</div>";
-                            unset($_SESSION['addFoto']);
+                            echo "<p class='info'>" . $_SESSION['addFoto'] . "</p>";
                         }
+                        unset($_SESSION['addFoto']);
                     ?>
-                </div>
+                
             </form>
         </div>
         
@@ -76,14 +85,14 @@
             <form action="../core/delFoto.php" method="POST">
                 
                 
-                <div class="info">
+                
                     <?php
                         if ($_SESSION['delFoto']) {
-                            echo "<div>" . $_SESSION['delFoto'] . "</div>";
+                            echo "<p class='info'>" . $_SESSION['delFoto'] . "</p>";
                         }
                         unset($_SESSION['delFoto']);
                     ?>
-                </div>
+                
                 <div id="ans">
                     
                 </div>
@@ -98,6 +107,6 @@
     
     <script src="../assets/jquery-3.5.1.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/admin.js"></script>
 </body>
 </html>

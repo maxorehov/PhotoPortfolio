@@ -183,9 +183,9 @@ input {
 
 /*ADMIN TEMPlATE*/
 
-aside {
+.left {
     height: 100%;
-    width: 260px;
+    width: 50px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -193,27 +193,93 @@ aside {
     background-color: #111;
     overflow-x: hidden;
     padding-top: 20px;
+    transition: all .5s;
 }
 
-aside a {
+.left.active {
+    width: 260px;
+}
+
+.left a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 18px;
     color: #818181;
-    display: block;
+    display: none;
     margin-top: 20px;
+    text-transform: uppercase;
+    opacity: 0;
+    white-space: nowrap;
 }
 
-aside a:hover {
+.left.active a {
+    display: block;
+    opacity: 1;
+}
+
+.left a:hover {
     color: #f1f1f1;
 }
 
+.aside-nav {
+    margin-top: 50px;
+}
+
 .admin-content {
-    margin-left: 260px;
+    margin-left: 50px;
     text-align: center;
-    /* display: flex;
-    flex-direction: column; */
     padding: 50px;
+}
+
+.btn_mnu {
+	width: 50px;
+	height: 50px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: tomato;
+	cursor: pointer;
+	position: absolute;
+    top: 0;
+    right: 0;
+}
+.btn_row {
+	height: 2px;
+	width: 60%;
+	margin: 2px 0;
+	background-color: #fff;
+	position: relative;
+	-webkit-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all .5s;
+}
+.btn_mnu.active .btn_row:first-child {
+	-webkit-transform: rotate(-135deg);
+	-ms-transform: rotate(-135deg);
+	-o-transform: rotate(-135deg);
+	transform: rotate(-135deg);
+	top: 6px;
+}
+.btn_mnu.active .btn_row:last-child {
+	-webkit-transform: rotate(-225deg);
+	-ms-transform: rotate(-225deg);
+	-o-transform: rotate(-225deg);
+	transform: rotate(-225deg);
+	top: -6px;
+}
+.btn_mnu.active .btn_row:nth-child(2) {
+	opacity: 0;
+}
+
+.info {
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid red;
 }
 
 /*ADMIN MAIN PAGE*/
@@ -225,16 +291,16 @@ aside a:hover {
 }
 
 .form-change {
-    /* margin: 0 auto; */
     margin-top: 50px;
-    width: 50%;
+    width: 100%;
 }
 
 
 /*ADMIN ALBUM PAGE*/
 
 .add-album {
-    margin-top: 50px;
+    margin: 50px auto;
+    width: 70%;
     border: 1px solid #000;
     border-radius: 10px;
     padding: 20px;
@@ -242,7 +308,8 @@ aside a:hover {
 }
 
 .del-album {
-    margin-top: 30px;
+    margin: 30px auto;
+    width: 70%;
     border: 1px solid #000;
     border-radius: 10px;
     padding: 20px;
@@ -261,8 +328,19 @@ aside a:hover {
 #delFotos {
     margin-bottom: 20px;
 }
+
+.change-content {
+    margin: 30px auto;
+    width: 70%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
 .add-foto {
-    margin-top: 30px;
+    margin: 30px auto;
+    width: 70%;
     border: 1px solid #000;
     border-radius: 10px;
     padding: 20px;
@@ -270,7 +348,8 @@ aside a:hover {
 }
 
 .del-fotos {
-    margin-top: 30px;
+    margin: 30px auto;
+    width: 70%;
     border: 1px solid #000;
     border-radius: 10px;
     padding: 20px;
@@ -285,6 +364,8 @@ aside a:hover {
 
 .custom-check {
     position: absolute;
+    height: 20px;
+    width: 20px;
  /*    right: 0;
     top: 0; */
 }
@@ -296,5 +377,6 @@ aside a:hover {
 
 .del-prew {
     width: 200px;
+    margin: 2px;
 }
 
