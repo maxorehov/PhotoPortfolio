@@ -12,7 +12,7 @@ body {
     font-family: Arial sans-serif;
 }
 .main {
-    background: url(img/bar.jpg) center no-repeat;
+    background: url(img/main.jpg) center no-repeat;
     background-size: cover;
     height: 100vh;
     padding-top: 50px;
@@ -95,14 +95,121 @@ body {
     margin-bottom: 25px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly   ;
-    padding-top: 50px;
+    justify-content: space-evenly;
+    padding-top: 20px;
 }
 
 .album {
     margin-top: 30px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    position: relative;
 }
+
+.album a {
+    z-index: 15;
+}
+
+.album-title {
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/*Анимация альбома*/
+
+.portfolio .album .overlay {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 11;
+  vertical-align: middle;
+  padding-top: 30%;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.portfolio .album .overlay h2, .portfolio .album .overlay span {
+  position: relative;
+  z-index: 12;
+  margin-bottom: 0;
+  text-align: center;
+  display: block;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.portfolio .album .overlay h2 {
+  color: #fff;
+  font-size: 26px;
+  font-weight: 300;
+  margin-bottom: 10px;
+  bottom: -15px;
+  text-transform: uppercase;
+
+}
+@media screen and (max-width: 768px) {
+  .portfolio .album .overlay h2 {
+    font-size: 18px;
+  }
+}
+.portfolio .album .overlay span {
+  color: #7ac143;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 400;
+  bottom: -5px;
+  visibility: hidden;
+  opacity: 0;
+}
+.portfolio .album .overlay:before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.portfolio .album:hover img {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+.portfolio .album:hover .overlay {
+  visibility: visible;
+  opacity: 1;
+}
+.portfolio .album:hover .overlay:before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.portfolio .album:hover .overlay h2 {
+  bottom: 0px;
+}
+.portfolio .album:hover .overlay span {
+  visibility: visible;
+  opacity: 1;
+  bottom: 0px;
+}
+
+
+
+
 
 .album-name {
     color: #000;
@@ -139,8 +246,48 @@ body {
     margin-bottom: 30px;
 }
 
+/*FOOTER*/
+
 .footer {
     background-color: rgb(55, 51, 109);
+}
+
+.social {
+    display: flex;
+    list-style-type: none;
+    float: right;
+}
+
+.cliarfix {
+    clear: both;
+}
+
+.social li {
+    margin: 10px;
+}
+
+.facebook {
+    background: url(img/face.svg) no-repeat center;
+    background-size: contain;
+    height: 50px;
+    width: 50px;
+    display: block;
+}
+
+.instagram {
+    background: url(img/inst.svg) no-repeat center;
+    background-size: contain;
+    height: 50px;
+    width: 50px;
+    display: block;  
+}
+
+.vk {
+    background: url(img/vk.svg) no-repeat center;
+    background-size: contain;
+    height: 50px;
+    width: 50px;
+    display: block; 
 }
 
 

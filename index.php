@@ -59,18 +59,23 @@
             </div> 
         </main>
         <div class="container portfolio-container">
-            <div class="goto-start">
+<!--             <div class="goto-start">
                 Наверх
                 <i class="icon-up"></i>
-            </div>
+            </div> -->
+            <h2 class="album-title">мои альбомы</h2>
             <div class="portfolio">
                     <?php foreach($responce as $value):?>
                         <div class="album">
                             
                             <a href="photos.php?id=<?= $value['id']; ?>">
                                 <img class="preview" src="<?= $value['prewiev'];?>" alt="">
+                                <!-- <p class="album-name"><?= $value['name'] ?></p> -->
+                                <span class="overlay">
+                                    <h2><?= $value['name'] ?></h2>
+                                    <!-- <span>14 Photos</span> -->
+                                </span>
                             </a>
-                            <p class="album-name"><?= $value['name'] ?></p>
                         </div>
                     <?php endforeach;?>
             </div>  
@@ -79,7 +84,14 @@
         <footer class="footer">
             <div class="container">
                 <h2>This is footer</h2>
+                <ul class="social">
+                    <li><a class="facebook" href="#"></a></li>
+                    <li><a class="instagram" href="#"></a></li>
+                    <li><a class="vk" href="#"></a></li>
+                </ul>
+             <div class="cliarfix"></div>
             </div>
+
         </footer>
     <script src="assets/js/index.js"></script>
     </body>
