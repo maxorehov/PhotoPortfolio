@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css" >
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="../assets/fonts.css">
+    <link rel="stylesheet" href="../assets/linea/styles.css">
 </head>
 <body>
     <aside class="left">
@@ -30,11 +31,25 @@
             <div class="btn_row"></div>
             <div class="btn_row"></div>
         </div>
-        <div class="aside-nav">
-           <a href="adminMain.php">Главная страница</a>
-           <a href="adminAlbum.php">Добавить альбом</a>
-           <a href="adminFoto.php">Добавить фото</a> 
-        </div>
+        <nav class="aside-nav">
+            <ul>
+                <li>
+                    <a href="adminMain.php">Главная страница</a>
+                </li>
+                <li>
+                    <a href="adminAlbum.php">Добавить альбом</a>
+                </li>
+                <li>
+                    <a href="adminFoto.php">Добавить фото</a> 
+                </li>
+                <li>
+                    <a href="adminComments.php">Комментрарии</a>
+                    <div class="wrap_counter">
+                        <span class="counter">10</span>
+                    </div>
+                </li>
+            </ul>
+        </nav>
 
     </aside>
     <div class="admin-content">
@@ -50,7 +65,7 @@
                 <input id="file" type="file"  id="prew" name="prew">
                 <button class="btn btn-primary">Создать</button>
                 <?php
-                    if ($_SESSION['addAlbum']) {
+                    if (isset($_SESSION['addAlbum'])) {
                         echo "<p class='info'>" . $_SESSION['addAlbum'] . "</p>";
                     }
                     unset($_SESSION['addAlbum']);
@@ -69,7 +84,7 @@
                 </select>
                 <button class="btn btn-danger">Удалить</button>
             <?php
-                if ($_SESSION['delAlbum']) {
+                if (isset($_SESSION['addAlbum'])) {
                     echo "<p class='info'>" . $_SESSION['delAlbum'] . "</p>";
                 }
                 unset($_SESSION['delAlbum']);

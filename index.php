@@ -49,7 +49,7 @@
                 </nav> -->
                     <article>
                         <p class="about">
-                            <?= $content; ?>
+                            <?= htmlspecialchars($content, ENT_QUOTES); ?>
                         </p>
                     </article>
                     <div class="goto-portfolio">
@@ -70,10 +70,8 @@
                             
                             <a href="photos.php?id=<?= $value['id']; ?>">
                                 <img class="preview" src="<?= $value['prewiev'];?>" alt="">
-                                <!-- <p class="album-name"><?= $value['name'] ?></p> -->
                                 <span class="overlay">
-                                    <h2><?= $value['name'] ?></h2>
-                                    <!-- <span>14 Photos</span> -->
+                                    <h2><?= htmlspecialchars($value['name'], ENT_QUOTES) ?></h2>
                                 </span>
                             </a>
                         </div>
@@ -83,7 +81,6 @@
 
         <footer class="footer">
             <div class="container">
-                <h2>This is footer</h2>
                 <ul class="social">
                     <li><a class="facebook" href="#"></a></li>
                     <li><a class="instagram" href="#"></a></li>

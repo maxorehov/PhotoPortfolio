@@ -25,7 +25,7 @@ and open the template in the editor.
                 <input id="pass" class="form-control" type="text" name="pass">
                 <button  class="btn btn-success">Войти</button>
                 <?php
-                    if ($_SESSION['msg']) {
+                    if (isset($_SESSION['msg'])) {
                         echo "<p class='error'>{$_SESSION['msg']}</p>";
                         unset($_SESSION['msg']);
                     }

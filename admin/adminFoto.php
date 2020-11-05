@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css" >
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="../assets/fonts.css">
+    <link rel="stylesheet" href="../assets/linea/styles.css">
 </head>
 <body>
     <aside class="left">
@@ -33,11 +34,25 @@
             <div class="btn_row"></div>
             <div class="btn_row"></div>
         </div>
-        <div class="aside-nav">
-           <a href="adminMain.php">Главная страница</a>
-           <a href="adminAlbum.php">Добавить альбом</a>
-           <a href="adminFoto.php">Добавить фото</a> 
-        </div>
+        <nav class="aside-nav">
+            <ul>
+                <li>
+                    <a href="adminMain.php">Главная страница</a>
+                </li>
+                <li>
+                    <a href="adminAlbum.php">Добавить альбом</a>
+                </li>
+                <li>
+                    <a href="adminFoto.php">Добавить фото</a> 
+                </li>
+                <li>
+                    <a href="adminComments.php">Комментрарии</a>
+                    <div class="wrap_counter">
+                        <span class="counter">10</span>
+                    </div>
+                </li>
+            </ul>
+        </nav>
 
     </aside>
     <div class="admin-content">
@@ -62,7 +77,7 @@
                 <button class="btn btn-primary">Загрузить</button>
                 
                     <?php
-                        if ($_SESSION['addFoto']) {
+                        if (isset($_SESSION['addFoto'])) {
                             echo "<p class='info'>" . $_SESSION['addFoto'] . "</p>";
                         }
                         unset($_SESSION['addFoto']);
@@ -87,7 +102,7 @@
                 
                 
                     <?php
-                        if ($_SESSION['delFoto']) {
+                        if (isset($_SESSION['delFoto'])) {
                             echo "<p class='info'>" . $_SESSION['delFoto'] . "</p>";
                         }
                         unset($_SESSION['delFoto']);

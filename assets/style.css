@@ -249,7 +249,7 @@ body {
 /*FOOTER*/
 
 .footer {
-    background-color: rgb(55, 51, 109);
+    background-color: rgb(71, 71, 71);
 }
 
 .social {
@@ -293,6 +293,15 @@ body {
 
 
 /*ADMIN PANEL*/
+.main_img {
+    background-color: red;
+    height: 25px;
+    width: 25px;
+    display: block;
+    background: url(img/add_album.svg) no-repeat center;
+    background-size: contain;
+}   
+
 form {
     display: flex;
     flex-direction: column;
@@ -347,15 +356,100 @@ input {
     width: 260px;
 }
 
+
+.aside-nav {
+  margin-top: 85px;
+}
+
+.aside-nav ul {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.aside-nav li a {
+  padding-left: 50px;
+  border-bottom: 1px solid #434343;
+}
+
+.aside-nav li:first-child a {
+  border-top: 1px solid #434343;
+}
+
+.aside-nav li:nth-child(1) a::before {
+  font-family: "linea-basic-10";
+  content: "Z";
+  font-size: 25px;
+  line-height: 0;
+  margin-bottom: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: -38px;
+  margin-right: 15px;
+  color: white;
+}
+
+.aside-nav li:nth-child(2) a::before {
+  font-family: "linea-basic-10";
+  content: "n";
+  font-size: 25px;
+  line-height: 0;
+  margin-bottom: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: -38px;
+  margin-right: 15px;
+  color: white;
+}
+
+.aside-nav li:nth-child(3) a::before {
+  font-family: "linea-basic-10";
+  content: "[";
+  font-size: 25px;
+  line-height: 0;
+  margin-bottom: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: -38px;
+  margin-right: 15px;
+  color: white;
+}
+
+.aside-nav li:nth-child(4) a::before {
+  font-family: "linea-basic-10";
+  content: ",";
+  font-size: 25px;
+  line-height: 0;
+  margin-bottom: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: -38px;
+  margin-right: 15px;
+  color: white;
+}
+
+.counter {
+  color: #fff;
+  position: absolute;
+  display: inline-block;
+  left: 27px;
+  font-size: 12px;
+  background-color: tomato;
+  border-radius: 50%;
+  width: 19px;
+  font-weight: bold;
+  bottom: 20px;
+  text-align: center;
+}
+
 .left a {
-    padding: 6px 8px 6px 16px;
+    padding: 6px 8px 6px 0;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
     color: #818181;
-    display: none;
-    margin-top: 20px;
+    display: block;
     text-transform: uppercase;
-    opacity: 0;
+    /*opacity: 0;*/
     white-space: nowrap;
 }
 
@@ -366,10 +460,12 @@ input {
 
 .left a:hover {
     color: #f1f1f1;
+    background-color: tomato;
 }
 
-.aside-nav {
-    margin-top: 50px;
+.aside-nav li {
+    /*margin-top: 50px;*/
+    list-style-type: none;
 }
 
 .admin-content {
@@ -525,5 +621,15 @@ input {
 .del-prew {
     width: 200px;
     margin: 2px;
+}
+
+/*ADMIN Comments Page*/
+
+.comment {
+  max-width: 500px;
+  margin-bottom: 25px;
+  text-align: left;
+  border: 1px solid black;
+  border-radius: ;
 }
 

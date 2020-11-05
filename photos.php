@@ -1,14 +1,24 @@
 <?php
     require_once 'core/connect_db.php';
     require_once 'core/functions.php';
+    
     $request = "SELECT * FROM photos WHERE album_id = :album_id";
+    $index = intval($_GET['id']);
      try {
         $responce = $pdo->prepare($request);
-        $responce->execute(['album_id' => $_GET['id']]); 
+        $responce->execute(['album_id' => $index]); 
     } catch (PDOException $e) {
         echo "Ошибка базы данных: " . $e->getMessage();
     }
     $photos = $responce->fetchAll(PDO::FETCH_ASSOC);
+    
+    $query = "SELECT * FROM comments WHERE album_id = $index AND public_id = 1";
+    try {
+        $responce = $pdo->query($query);
+    } catch (PDOException $e) {
+        echo "Ошибка базы данных: " . $e->getMessage();
+    }
+    $comments = $responce->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!doctype html>
@@ -40,9 +50,37 @@
                 </div>
                 <?php endforeach; ?>
             </div>
-                
-            
         </div>
+        <div class="container">
+            <h3>Комментарии к альбому</h3>
+            <div class="comments">
+                <?php foreach($comments as $comment): ?>
+                    <p><?= $comment['text'];?></p>
+                <?php endforeach; ?>
+            </div>
+            <div class="addComment">
+                <form id="comment_form">
+                    <p>Введите имя</p>
+                    <input type="text" name="name" value="">
+                    <p>Добавьте комментарий</p>
+                    <textarea name="comment" id="" cols="30" rows="10"></textarea>
+                    <input type="hidden" name="album_id" value="<?= $index; ?>">
+                    <input type="submit" value="Отправить" id="add_comment" />
+                </form>
+                <div class="msg"></div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <ul class="social">
+                    <li><a class="facebook" href="#"></a></li>
+                    <li><a class="instagram" href="#"></a></li>
+                    <li><a class="vk" href="#"></a></li>
+                </ul>
+             <div class="cliarfix"></div>
+            </div>
+
+        </footer>
         <script src="assets/jquery-3.5.1.min.js" ></script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/masonry.min.js"></script>

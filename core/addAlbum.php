@@ -28,7 +28,8 @@
         $request->execute(['name' => $name, 'description' => $descr, 'preview' => $path]);
 //        mkdir($pathToDir);
         $_SESSION['addAlbum'] = 'success';
-        header('Location: ../admin/adminAlbum.php');
+        header('Location: ../photos.php');
+        die();
     } catch (PDOException $e) {
         echo "Не удалось добавить новый альбом" . $e->getMessage();
     }

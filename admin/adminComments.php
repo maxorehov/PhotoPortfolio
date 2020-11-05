@@ -1,16 +1,24 @@
 <?php
     session_start();
+    require_once '../core/connect_db.php';
+    require_once '../core/functions.php';
     if (!$_SESSION['signin']) {
         header("Location: index.html");
     }
-    require_once '../core/connect_db.php';
+    
     $query = "SELECT * FROM comments WHERE public_id = 0";
-    $response = $pdo->query($query);
-    $comments = $response->fetchAll(PDO::FETCH_ASSOC);
+    try {
+        $response = $pdo->query($query);
+        $comments = $response->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Ошибка БД: " . $e->getMessage();
+    }
+
     $counter = 0;
     foreach($comments as $comment) {
         $counter++;
     }
+    
 ?>
 <!DOCTYPE html>
 <html lang = "en">
@@ -31,13 +39,6 @@
             <div class="btn_row"></div>
             <div class="btn_row"></div>
         </div>
-
-<!--         <div class="aside-nav">
-           <a href="adminMain.php">Главная страница</a>
-           <a href="adminAlbum.php">Добавить альбом</a>
-           <a href="adminFoto.php">Добавить фото</a> 
-        </div> -->
-
         <nav class="aside-nav">
             <ul>
                 <li>
@@ -60,19 +61,23 @@
 
     </aside>
     <div class="admin-content">
-        <h2>На этой странице вы можете отредактировать содержимое главной страницы</h2>
-        <div class="change-content">
-            <form action="../core/changeText.php" class="form-change" method="POST">
-                <label for="main-text">Введите текст</label>
-                <textarea class="form-control" name="content" id="main-text" cols="80" rows="10"></textarea>
-                <button type="submit" class="btn btn-primary btn-change">Изменить</button>
-                <?php
-                    if (isset($_SESSION['content'])) {
-                        echo "<p class='info'>{$_SESSION['content']}</p>";
-                    }
-                    unset($_SESSION['content']);
-                ?>
-            </form>
+        <h2>На этой странице вы можете подтвердить или отменить вывод комментария</h2>
+        <div class="container">
+            
+                <?php foreach($comments as $comment): ?>
+                    <div class="comment">
+                        <form action="../core/comments.php" method="POST">
+                            <div><?= $comment['name']; ?></div>
+                            <textarea name="text" value="<?= $comment['text']; ?>" disabled><?= $comment['text']; ?></textarea>
+                            <input name="comment_id" type="hidden" value="<?= $comment['id']; ?>">
+                            <input name="confirm" type="submit" value="подтвердить">
+                            <input name="delete" type="submit" value="удалить">
+                            <!--<button>confirm</button>-->
+                        </form>
+                    </div>
+
+                <?php endforeach; ?>
+           
         </div>
 
     </div>
