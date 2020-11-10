@@ -11,6 +11,19 @@
     } catch (PDOException $e) {
         echo "Не удалось удалить альбом, ошибка БД: " . $e->getMessage();
     }
+    
+    $query = "SELECT * FROM comments WHERE public_id = 0";
+    try {
+        $response = $pdo->query($query);
+        $comments = $response->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Ошибка БД: " . $e->getMessage();
+    }
+
+    $counter = 0;
+    foreach($comments as $comment) {
+        $counter++;
+    }
 ?>
 <!DOCTYPE html>
 <html lang = "en">
@@ -45,7 +58,7 @@
                 <li>
                     <a href="adminComments.php">Комментрарии</a>
                     <div class="wrap_counter">
-                        <span class="counter">10</span>
+                        <span class="counter"><?= $counter; ?></span>
                     </div>
                 </li>
             </ul>

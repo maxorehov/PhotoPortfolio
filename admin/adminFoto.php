@@ -5,12 +5,25 @@
     if (!$_SESSION['signin']) {
         header("Location: index.html");
     }
-    $request = "SELECT * FROM albums";
+    $query = "SELECT * FROM albums";
     try {
-        $albums = $pdo->query($request);
+        $albums = $pdo->query($query);
         $albums = $albums->fetchAll();
     } catch (PDOException $e) {
         echo "Ошибка БД: " . $e->getMessage();
+    }
+    
+    $query = "SELECT * FROM comments WHERE public_id = 0";
+    try {
+        $response = $pdo->query($query);
+        $comments = $response->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Ошибка БД: " . $e->getMessage();
+    }
+
+    $counter = 0;
+    foreach($comments as $comment) {
+        $counter++;
     }
     
     
@@ -48,7 +61,7 @@
                 <li>
                     <a href="adminComments.php">Комментрарии</a>
                     <div class="wrap_counter">
-                        <span class="counter">10</span>
+                        <span class="counter"><?= $counter; ?></span>
                     </div>
                 </li>
             </ul>

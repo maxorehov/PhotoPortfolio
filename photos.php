@@ -55,17 +55,21 @@
             <h3>Комментарии к альбому</h3>
             <div class="comments">
                 <?php foreach($comments as $comment): ?>
+                <div class="comment_album">
+                    <p class="name"><?= $comment['name'];?>:</p>
                     <p><?= $comment['text'];?></p>
+                </div>
                 <?php endforeach; ?>
             </div>
             <div class="addComment">
+                <h3>Вы можете оставить свой комментарий</h3>
                 <form id="comment_form">
                     <p>Введите имя</p>
                     <input type="text" name="name" value="">
                     <p>Добавьте комментарий</p>
                     <textarea name="comment" id="" cols="30" rows="10"></textarea>
                     <input type="hidden" name="album_id" value="<?= $index; ?>">
-                    <input type="submit" value="Отправить" id="add_comment" />
+                    <input class="btn btn-primary" type="submit" value="Отправить" id="add_comment" />
                 </form>
                 <div class="msg"></div>
             </div>
