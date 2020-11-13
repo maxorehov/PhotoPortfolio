@@ -2,10 +2,10 @@
 -- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Хост: localhost:3306
--- Время создания: Окт 01 2020 г., 14:54
--- Версия сервера: 10.1.44-MariaDB-0ubuntu0.18.04.1
--- Версия PHP: 7.2.24-0ubuntu0.18.04.6
+-- Host: localhost:3306
+-- Generation Time: Nov 13, 2020 at 11:05 AM
+-- Server version: 10.1.47-MariaDB-0ubuntu0.18.04.1
+-- PHP Version: 7.2.24-0ubuntu0.18.04.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `portfolio`
+-- Database: `portfolio`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `albums`
+-- Table structure for table `albums`
 --
 
 CREATE TABLE `albums` (
@@ -35,7 +35,7 @@ CREATE TABLE `albums` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Дамп данных таблицы `albums`
+-- Dumping data for table `albums`
 --
 
 INSERT INTO `albums` (`id`, `name`, `description`, `prewiev`, `create_time`) VALUES
@@ -55,7 +55,34 @@ INSERT INTO `albums` (`id`, `name`, `description`, `prewiev`, `create_time`) VAL
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `content`
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `text` text NOT NULL,
+  `album_id` int(11) NOT NULL,
+  `public_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `name`, `text`, `album_id`, `public_id`) VALUES
+(13, 'Mazim', 'This is firs comment', 61, 1),
+(14, 'orman', 'hello this is comment from rom', 61, 1),
+(16, 'марс ', 'этоо комментарий к альбому\n', 59, 1),
+(18, 'оододло', 'одлодождлождлодлождлождлод длождлододлождлождлодлодлодлод ждлождлодлоджлождлождлождло длождлождлождлождлождлод длождлождлоджлождлод джлоджлодлоджлоджлоджло джлождлоджлодлождло джлодлождлождлоджлодло ждождлодлождлождлодло длождлождлоджлождло длоджлодлождлодло джлождлождлождлождло длождлождлождлождлождло длождлождлождлождло длождлождлождожд ждлоджлождлождлождло длождлождлощшощшодщозщодлодш длоджлождлощшодлоюьтдлождожщш длождлождлощодл ждлождложщшодложшодлодшодлтьдло длошодлощшодлдлождощо длождшодло', 61, 1),
+(19, 'Automan', 'this is comment from car album!', 61, 1),
+(20, 'BMW', 'bmw is my favorite car', 61, 1),
+(21, 'test', 'this is test comment', 60, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `content`
 --
 
 CREATE TABLE `content` (
@@ -64,16 +91,16 @@ CREATE TABLE `content` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Дамп данных таблицы `content`
+-- Dumping data for table `content`
 --
 
 INSERT INTO `content` (`id`, `content`) VALUES
-(0, '');
+(0, '<script>alert(\"Hello\")</script>');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `photos`
+-- Table structure for table `photos`
 --
 
 CREATE TABLE `photos` (
@@ -83,14 +110,13 @@ CREATE TABLE `photos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Дамп данных таблицы `photos`
+-- Dumping data for table `photos`
 --
 
 INSERT INTO `photos` (`id`, `path`, `album_id`) VALUES
 (74, 'uploads/fotos/160024438620190602-IMG_9421.jpg', 59),
 (75, 'uploads/fotos/160024438620190602-IMG_9422.jpg', 59),
 (76, 'uploads/fotos/1600244386IMG_6453.jpg', 59),
-(77, 'uploads/fotos/1600244386IMG_3072.jpg', 59),
 (78, 'uploads/fotos/1600244442IMG_3091.jpg', 59),
 (79, 'uploads/fotos/1600244442IMG_3207.jpg', 59),
 (80, 'uploads/fotos/1600244442IMG_3639.jpg', 59),
@@ -137,7 +163,7 @@ INSERT INTO `photos` (`id`, `path`, `album_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `profiles`
+-- Table structure for table `profiles`
 --
 
 CREATE TABLE `profiles` (
@@ -147,56 +173,67 @@ CREATE TABLE `profiles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Дамп данных таблицы `profiles`
+-- Dumping data for table `profiles`
 --
 
 INSERT INTO `profiles` (`id`, `log`, `pass`) VALUES
 (2, 'admin', '$2y$10$oHZNIWGztgwcSmpq0XM6B.fdFW4ycQJ9icvOXKVX77dZYXyWmjBEq');
 
 --
--- Индексы сохранённых таблиц
+-- Indexes for dumped tables
 --
 
 --
--- Индексы таблицы `albums`
+-- Indexes for table `albums`
 --
 ALTER TABLE `albums`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `content`
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `content`
 --
 ALTER TABLE `content`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `photos`
+-- Indexes for table `photos`
 --
 ALTER TABLE `photos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `profiles`
+-- Indexes for table `profiles`
 --
 ALTER TABLE `profiles`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT для сохранённых таблиц
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT для таблицы `albums`
+-- AUTO_INCREMENT for table `albums`
 --
 ALTER TABLE `albums`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 --
--- AUTO_INCREMENT для таблицы `photos`
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 --
--- AUTO_INCREMENT для таблицы `profiles`
+-- AUTO_INCREMENT for table `profiles`
 --
 ALTER TABLE `profiles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

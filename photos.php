@@ -54,12 +54,16 @@
         <div class="container">
             <h3>Комментарии к альбому</h3>
             <div class="comments">
+                <?php if (!empty($comments)): ?>
                 <?php foreach($comments as $comment): ?>
                 <div class="comment_album">
                     <p class="name"><?= $comment['name'];?>:</p>
                     <p><?= $comment['text'];?></p>
                 </div>
                 <?php endforeach; ?>
+                <?php else : ?>
+                    <h3>пока нету ниодного комментария</h3>
+                <?php endif; ?>
             </div>
             <div class="addComment">
                 <h3>Вы можете оставить свой комментарий</h3>
